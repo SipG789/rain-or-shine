@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,40 @@
     <title>Weather Forecast</title>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body>
     <header class="header"><strong>Weather Forecast</strong></header>
-<!-- search section -->
-<section>
-    <div class="input-text">
+    <!-- search section -->
+    <section class="section">
+        <div class="container">
+            <div class="columns">
 
-    </div>
-</section>
-<!-- weather display -->
-<section>
-    <div class="wthr-display">
+                <!-- search bar -->
+                <div class="input-text col-4">
+                    <input class="search-bar" type="text" placeholder="Search..">
+                </div>
 
-    </div>
-</section>
-<!-- weekly forecast -->
-<section>
-    <div class="forecast">
+                <!-- weather display -->
+                <div class="wthr-display col-8">
+                    <ul>
+                        <li>Temp:</li>
+                        <li>Wind:</li>
+                        <li>Humidity:</li>
+                        <li>Index:</li>
+                    </ul>
+                </div>
 
-    </div>
-</section>
+            </div>
+        </div>
+
+        <!-- weekly forecast -->
+        <div class="forecast">
+            <h4>5-Day Forecast:</h4>
+        </div>
+    </section>
 
 
-<script src="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
+
 </html>
