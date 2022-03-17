@@ -12,8 +12,43 @@ header {
     font-size: 17px;  
 }
 
+.form-input {
+    width: 100%;
+    padding: 3%;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    border: 2px solid;
+    border-radius: solid;
+  }
+  
+
+.btn {
+    font-size: 1.3rem;
+    text-decoration:none;
+    padding: 6px 5px;
+    width: 100%;
+    display: block;
+    margin: 5px 0;
+    border-radius: blue;
+    color: blue;
+    outline: none;
+    background-color:aqua;
+    box-shadow: 3px 3px 3px;
+    transform: translate(-1px, -1px);
+  }
+  
+
 .input-text {
+    font-size: larger;
+    
 }
 
 .wthr-display {
+    border: solid;
+    font-size: larger;
+}
+
+.forecast {
+    font-size: larger;
+    margin-left: 35%;
 }
