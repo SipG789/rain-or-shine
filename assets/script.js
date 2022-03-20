@@ -33,10 +33,10 @@ var getWeather = function () {
 };
 
 var displayWeather = function(temp, weatherResults) {
-    console.log(temp.main.temp);
+    //console.log(temp.main.temp);
     var temperatureEl = temp.main.temp;
-    console.log(weatherResults);
-   // tempContainerEl.textContent = "";
+   // console.log(weatherResults);
+    tempContainerEl.textContent = "";
     weatherSearch.textContent = weatherResults;
         // format info name 
         var tempName = temperatureEl;
@@ -45,14 +45,31 @@ var displayWeather = function(temp, weatherResults) {
         tempEl.classList = "temp-";
         // create span name to hold 
         var titleEl = document.createElement("span");
-        tempEl.textContent = "Temp: " + tempName;
-
+        tempEl.textContent = "Temp: " + Math.round((tempName - 273.15) *1.8 + 32) + " F";
+        
         // append to container 
         tempEl.appendChild(titleEl);
 
         // append container to DOM
         tempContainerEl.appendChild(tempEl);
-    
+
+    // var for wind
+    var windEl = temp.wind.speed;
+    console.log(windEl);
+    var windName = windEl; 
+
+    var windEl = document.createElement("div");
+    windEl.classList = "wind"
+
+    var windSpeedEl = document.createElement("span");
+    windEl.textContent = "Wind Speed: " + windName + " mph";
+
+    windEl.appendChild(windSpeedEl);
+    tempContainerEl.appendChild(windEl);
+
+
+    // display humidity 
+
 };
 
 
@@ -76,6 +93,5 @@ var anyCitySearch = function () {
 // TODO: convert data time 
 
 // TODO: add search history to local storage-- build search history with moment/js
-
 
 searchBtn.addEventListener("click", anyCitySearch);
