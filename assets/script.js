@@ -55,11 +55,11 @@ var displayWeather = function(temp, weatherResults) {
 
     // var for wind
     var windEl = temp.wind.speed;
-    console.log(windEl);
+   // console.log(windEl);
     var windName = windEl; 
 
     var windEl = document.createElement("div");
-    windEl.classList = "wind"
+    windEl.classList = "wind";
 
     var windSpeedEl = document.createElement("span");
     windEl.textContent = "Wind Speed: " + windName + " mph";
@@ -69,7 +69,19 @@ var displayWeather = function(temp, weatherResults) {
 
 
     // display humidity 
+    var humEl = temp.main.humidity;
+    console.log(humEl);
 
+    var humName = humEl;
+
+    var humEl = document.createElement("div");
+    humEl.classList = "humidity";
+
+    var humidityEl = document.createElement("span");
+    humEl.textContent = "Humidity: " + humName + "%";
+
+    humEl.appendChild(humidityEl);
+    tempContainerEl.appendChild(humEl);
 };
 
 
