@@ -5,21 +5,28 @@ var cityInput = document.querySelector("#city");
 
 // TODO: display current weather data of a city on to page 
 var getWeather = function () {
-// fetch api request by city/location name 
-var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchCities + "&appid=" + apiKey; 
+    // fetch api request by city/location name 
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + searchCities + "&appid=" + apiKey;
 
-fetch(apiUrl)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    var latitude = data[0].lat;
-    var longitude = data[0].lon;
-    return [latitude, longitude];
-})
-.then(function (value) {
-    console.log(value);
-});
+    fetch(apiUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            var latitude = data[0].lat;
+            var longitude = data[0].lon;
+            return [latitude, longitude];
+        })
+        .then(function (value) {
+            fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
+                .then(function (response) {
+                    console.log(response);
+                    return response.json();
+                })
+                .then(function (data) {
+                    console.log(data);
+                });
+        });
 };
 
 
