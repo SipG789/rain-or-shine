@@ -35,8 +35,15 @@ var getWeather = function () {
 
 // search the city 
 var anyCitySearch = function () {
-    searchCities = cityInput.value;
+    // get value from input
+    searchCities = cityInput.value.trim();
+
+    if (searchCities) {
     getWeather(searchCities);
+    cityInput.value = "";
+    } else {
+        alert("Please enter a city");
+    }
 };
 // TODO: UV index and have it display color code use if then statement 
 
