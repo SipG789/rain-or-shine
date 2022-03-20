@@ -2,6 +2,9 @@ var apiKey = "412f552a2caae59cf70968b318d2f634";
 var searchCities;
 var searchBtn = document.querySelector(".btn");
 var cityInput = document.querySelector("#city");
+var weatherSearch = document.querySelector("#weather-results");
+var tempContainerEl = document.querySelector("#weather-container");
+
 
 // TODO: display current weather data of a city on to page 
 var getWeather = function () {
@@ -20,16 +23,37 @@ var getWeather = function () {
         .then(function (value) {
             fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
                 .then(function (response) {
-                    console.log(response);
+                    //console.log(response);
                     return response.json();
                 })
                 .then(function (data) {
-                    console.log(data);
+                  displayWeather(data, searchCities);
                 });
         });
 };
 
+var displayWeather = function(temp, weatherResults) {
+    console.log(temp.main.temp);
+    var temperatureEl = temp.main.temp;
+    console.log(weatherResults);
+   // tempContainerEl.textContent = "";
+    weatherSearch.textContent = weatherResults;
+        // format info name 
+        var tempName = temperatureEl;
+        // create container 
+        var tempEl = document.createElement("div");
+        tempEl.classList = "temp-";
+        // create span name to hold 
+        var titleEl = document.createElement("span");
+        tempEl.textContent = "Temp: " + tempName;
 
+        // append to container 
+        tempEl.appendChild(titleEl);
+
+        // append container to DOM
+        tempContainerEl.appendChild(tempEl);
+    
+};
 
 
 
