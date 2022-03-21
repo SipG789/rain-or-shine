@@ -10,7 +10,7 @@
 
 
 The following is a screenshot of the application.
-
+![screenshot](./assets/deployed-app.PNG)
 
 ## Accepted Criteria 
 
