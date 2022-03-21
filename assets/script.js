@@ -4,7 +4,7 @@ var searchBtn = document.querySelector(".btn");
 var cityInput = document.querySelector("#city");
 var weatherSearch = document.querySelector("#weather-results");
 var tempContainerEl = document.querySelector("#weather-container");
-
+var forecast = document.querySelector("#forecast-container");
 
 // TODO: display current weather data of a city on to page 
 var getWeather = function () {
@@ -21,42 +21,74 @@ var getWeather = function () {
             return [latitude, longitude];
         })
         .then(function (value) {
-            fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
+            fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
                 .then(function (response) {
                     //console.log(response);
                     return response.json();
                 })
                 .then(function (data) {
-                  displayWeather(data, searchCities);
+                    displayWeather(data, searchCities);
                 });
         });
 };
 
-var displayWeather = function(temp, weatherResults) {
+// TODO: fetch api for 5 day forecast  
+var weeklyForecast = function () {
+    var weeklyUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCities + "&appid=" + apiKey;
+    fetch(weeklyUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            //  var lats = data[0].lat;
+            //  var longs = data[0].lon;
+            // console.log(lats, longs);
+            // return [lats, longs];
+//         })
+//         .then(function (value) {
+//             fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
+//                 .then(function (response) {
+//                     console.log(response);
+//                     return response.json();
+//                 })
+//                 .then(function (data) {
+//                     weeklyForecast(data, searchCities);
+//                 });
+//         });
+// };
+
+// var displayForecast = function () {
+
+// };
+
+
+
+var displayWeather = function (temp, weatherResults) {
     //console.log(temp.main.temp);
     var temperatureEl = temp.main.temp;
-   // console.log(weatherResults);
+    // console.log(weatherResults);
     tempContainerEl.textContent = "";
     weatherSearch.textContent = weatherResults;
-        // format info name 
-        var tempName = temperatureEl;
-        // create container 
-        var tempEl = document.createElement("div");
-        tempEl.classList = "temp-";
-        // create span name to hold 
-        var titleEl = document.createElement("span");
-        tempEl.textContent = "Temp: " + Math.round((tempName - 273.15) *1.8 + 32) + " F";
-        
-        // append to container 
-        tempEl.appendChild(titleEl);
+    // format info name 
+    var tempName = temperatureEl;
+    // create container 
+    var tempEl = document.createElement("div");
+    tempEl.classList = "temp-";
+    // create span name to hold 
+    var titleEl = document.createElement("span");
+    tempEl.textContent = "Temp: " + Math.round((tempName - 273.15) * 1.8 + 32) + " F";
 
-        // append container to DOM
-        tempContainerEl.appendChild(tempEl);
+    // append to container 
+    tempEl.appendChild(titleEl);
+
+    // append container to DOM
+    tempContainerEl.appendChild(tempEl);
 
     // var for wind
     var windEl = temp.wind.speed;
-   // console.log(windEl);
-    var windName = windEl; 
+    // console.log(windEl);
+    var windName = windEl;
 
     var windEl = document.createElement("div");
     windEl.classList = "wind";
@@ -70,7 +102,7 @@ var displayWeather = function(temp, weatherResults) {
 
     // display humidity 
     var humEl = temp.main.humidity;
-    console.log(humEl);
+    //console.log(humEl);
 
     var humName = humEl;
 
@@ -92,15 +124,14 @@ var anyCitySearch = function () {
     searchCities = cityInput.value.trim();
 
     if (searchCities) {
-    getWeather(searchCities);
-    cityInput.value = "";
+       getWeather(searchCities);
+       weeklyForecast(searchCities);
+        cityInput.value = "";
     } else {
         alert("Please enter a city");
     }
 };
 // TODO: UV index and have it display color code use if then statement 
-
-// TODO: fetch api for 5 day forecast  
 
 // TODO: convert data time 
 
