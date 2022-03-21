@@ -265,6 +265,66 @@ var displayWeather = function (temp, weatherResults) {
     thurTemp.appendChild(thTempEl);
     thurs.appendChild(thurTemp);
 
+    // thursday wind speed
+    var thWindSpeed = temp.daily[3].wind_speed;
+    var thursWindName = thWindSpeed;
+    var thWindSpeed = document.createElement("div");
+    thWindSpeed.classList = "thursday";
+    var thWindEl = document.createElement("span");
+    thWindSpeed.textContent = "Wind: " + thursWindName + " MPH";
+    thWindSpeed.appendChild(thWindEl);
+    thurs.appendChild(thWindSpeed);
+
+    // thursday humidity 
+    var thHumidity = temp.daily[3].humidity;
+    var thHumName = thHumidity;
+    var thHumidity = document.createElement("div");
+    thHumidity.classList = "thursday";
+    var thHumEl = document.createElement("span");
+    thHumidity.textContent = "Humidity " + thHumName + " %";
+    thHumidity.appendChild(thHumEl);
+    thurs.appendChild(thHumidity);
+
+    // friday date 
+    var friDate = temp.daily[4].dt;
+    var dateFridayName = friDate;
+    var friDate = document.createElement("div");
+    friDate.classList = "friday";
+    var fridayDateEl = document.createElement("span");
+    friDate.textContent = dateFridayName;
+    friDate.appendChild(fridayDateEl);
+    friday.appendChild(friDate);
+
+    // friday temp 
+    var friTemp = temp.daily[4].temp.day;
+    var fridayTempName = friTemp;
+    var friTemp = document.createElement("div");
+    friTemp.classList = "friday";
+    var friTempEl = document.createElement("span");
+    friTemp.textContent = "Temp: " + fridayTempName + " F";
+    friTemp.appendChild(friTempEl);
+    friday.appendChild(friTemp);
+
+    // friday wind speed 
+    var friWinds = temp.daily[4].wind_speed;
+    var friSpeedName = friWinds;
+    var friWinds = document.createElement("div");
+    friWinds.classList = "friday";
+    var friWindSpeedEl = document.createElement("span");
+    friWinds.textContent = "Wind: " + friSpeedName + " MPH";
+    friWinds.appendChild(friWindSpeedEl);
+    friday.appendChild(friWinds);
+
+    // friday humidity 
+    var friHum = temp.daily[4].humidity;
+    var friHumName = friHum;
+    var friHum = document.createElement("div");
+    friHum.classList = "friday";
+    var fridayHumidEl = document.createElement("span");
+    friHum.textContent = "Humidity: " + friHumName + " %";
+    friHum.appendChild(fridayHumidEl);
+    friday.appendChild(friHum);
+
 };
 
 
