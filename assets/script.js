@@ -147,7 +147,7 @@ var displayWeather = function (temp, weatherResults) {
      var monName = mondayEl;
 
      var mondayEl = document.createElement("div");
-     mondayEl.classList = "mondays";
+     mondayEl.classList = "monday";
 
      var monTempEl = document.createElement("span");
      mondayEl.textContent = monName;
@@ -162,7 +162,7 @@ var displayWeather = function (temp, weatherResults) {
     var oneName = dayOneTemp;
 
     var dayOneTemp = document.createElement("div");
-    dayOneTemp.classList = "mondays";
+    dayOneTemp.classList = "monday";
 
     var dayOneEl = document.createElement("span");
     dayOneTemp.textContent = "Temp: " + Math.round(oneName) + " F"; 
@@ -177,7 +177,7 @@ var displayWeather = function (temp, weatherResults) {
     var windMonName = windSpeedMon; 
 
     var windSpeedMon = document.createElement("div");
-    windSpeedMon.classList = "mondays";
+    windSpeedMon.classList = "monday";
 
     var speedEl = document.createElement("span");
     windSpeedMon.textContent = "Wind: " + windMonName + " MPH";
@@ -190,7 +190,7 @@ var displayWeather = function (temp, weatherResults) {
     var humMon = temp.daily[0].humidity;
     var humOneName = humMon;
     var humMon = document.createElement("div");
-    humMon.classList = "mondays";
+    humMon.classList = "monday";
     var humOneEl = document.createElement("span");
     humMon.textContent = "Humidity: " + humOneName + " %";
     humMon.appendChild(humOneEl);
@@ -200,7 +200,7 @@ var displayWeather = function (temp, weatherResults) {
     var dateTues = temp.daily[1].dt;
     var dateName = dateTues;
     var dateTues = document.createElement("div");
-    dateTues.classList = "tuesdays";
+    dateTues.classList = "tuesday";
     var dateTuesEl = document.createElement("span");
     dateTues.textContent = dateName;
     dateTues.appendChild(dateTuesEl);
@@ -210,12 +210,91 @@ var displayWeather = function (temp, weatherResults) {
     var tuesTemp = temp.daily[1].temp.day;
     var tuestempName = tuesTemp;
     var tuesTemp = document.createElement("div");
-    tuesTemp.classList = "tuesdays";
+    tuesTemp.classList = "tuesday";
     var twoTempEl = document.createElement("span");
     tuesTemp.textContent = "Temp: " + Math.round(tuestempName) + " F";
     tuesTemp.appendChild(twoTempEl);
     tuesday.appendChild(tuesTemp);
 
+    // tuesday wind speed 
+    var windTues = temp.daily[1].wind_speed;
+    var tuesWindName = windTues;
+    var windTues = document.createElement("div");
+    windTues.classList = "tuesday";
+    var speedTuesEl = document.createElement("span");
+    windTues.textContent = "Wind: " + tuesWindName + " MPH";
+    windTues.appendChild(speedTuesEl);
+    tuesday.appendChild(windTues);
+
+    // tuesday humidity 
+    var humTues = temp.daily[1].humidity;
+    var tuesHumName = humTues;
+    var humTues = document.createElement("div");
+    humTues.classList = "tuesday";
+    var humidityTuesdayEl = document.createElement("span");
+    humTues.textContent = "Humidity: " + tuesHumName + " %";
+    humTues.appendChild(humidityTuesdayEl);
+    tuesday.appendChild(humTues);
+
+    // wednesday date time 
+    var dateWed = temp.daily[2].dt;
+    var dayWedName = dateWed;
+    var dateWed = document.createElement("div");
+    dateWed.classList = "wednesday";
+    var wedDateEl = document.createElement("span");
+    dateWed.textContent = dayWedName;
+    dateWed.appendChild(wedDateEl);
+    weds.appendChild(dateWed);
+    
+    // wednesday temp 
+    var wedTemp = temp.daily[2].temp.day;
+    var tempNameWed = wedTemp;
+    var wedTemp = document.createElement("div");
+    wedTemp.classList = "wednesday";
+    var tempWedEl = document.createElement("span");
+    wedTemp.textContent = "Temp: " + Math.round(tempNameWed) + " F";
+    wedTemp.appendChild(tempWedEl);
+    weds.appendChild(wedTemp);
+
+    //wednesday wind speed
+    var wedsWind = temp.daily[2].wind_speed;
+    var wedSpeedName = wedsWind;
+    var wedsWind = document.createElement("div");
+    wedsWind.classList = "wednesday";
+    var windWedsEl = document.createElement("span");
+    wedsWind.textContent = "Wind: " + wedSpeedName + " MPH";
+    wedsWind.appendChild(windWedsEl);
+    weds.appendChild(wedsWind);
+
+    // wednesday humidity 
+    var wedHum = temp.daily[2].humidity;
+    var humWedsName = wedHum;
+    var wedHum = document.createElement("div");
+    wedHum.classList = "wednesday";
+    var wedHumEl = document.createElement("span");
+    wedHum.textContent = "Humidity " + humWedsName + " %";
+    wedHum.appendChild(wedHumEl);
+    weds.appendChild(wedHum);
+
+    // thursay date time 
+    var thursDay = temp.daily[3].dt;
+    var thurName = thursDay;
+    var thursDay = document.createElement("div");
+    thursDay.classList = "thursday";
+    var thDateEl = document.createElement("span");
+    thursDay.textContent = thurName;
+    thursDay.appendChild(thDateEl);
+    thurs.appendChild(thursDay);
+
+    // thursday temp 
+    var thurTemp = temp.daily[3].temp.day;
+    var thTempName = thurTemp;
+    var thurTemp = document.createElement("div");
+    thurTemp.classList = "thursday";
+    var thTempEl = document.createElement("span");
+    thurTemp.textContent = "Temp: " + thTempName + " F";
+    thurTemp.appendChild(thTempEl);
+    thurs.appendChild(thurTemp);
 
 };
 
