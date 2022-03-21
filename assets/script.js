@@ -39,37 +39,6 @@ var getWeather = function () {
         });
 };
 
-// TODO: fetch api for 5 day forecast  
-
-// this is old code that i dont think I will need 
-// var weeklyForecast = function () {
-//     var weeklyUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchCities + "&appid=" + apiKey;
-//     fetch(weeklyUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data);
-            //  var lats = data[0].lat;
-            //  var longs = data[0].lon;
-            // console.log(lats, longs);
-            // return [lats, longs];
-  //     });
-//         .then(function (value) {
-//             fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + value[0] + "&lon=" + value[1] + "&appid=" + apiKey)
-//                 .then(function (response) {
-//                     console.log(response);
-//                     return response.json();
-//                 })
-//                 .then(function (data) {
-//                     weeklyForecast(data, searchCities);
-//                 });
-//         });
- //};
-
-// var displayForecast = function () {
-
-// };
 
 
 
