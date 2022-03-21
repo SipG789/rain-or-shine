@@ -52,3 +52,15 @@ header {
     font-size: larger;
     margin-left: 35%;
 }
+
+.wthr-display {
+    font-size: large;
+    background-color:cadetblue;
+    box-shadow: 3px 3px 3px;
+    transform: translate(-1px, -1px);
+}
+
+.wthr-display, .span {
+    font-size: x-large;
+    color: black;
+}

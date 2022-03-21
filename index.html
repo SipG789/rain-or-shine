@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>Weather Forecast</title>
 </head>
 
 <body>
@@ -18,32 +18,22 @@
         <div class="container">
             <div class="columns">
 
-                    <div class="card column is-one-third">
-                      <h3 class="card-header text-uppercase" > <strong>Search for a City:</strong></h3>
-                      <form id="user-form" class="card-body">
-                        <label class="form-label" for="username"></label>
-                        <input name="username" id="city" type="text" autofocus="true" class="form-input is-full" />
-                        <div>
+                <div class="card column is-one-third">
+                    <h3 class="card-header text-uppercase"> <strong>Search for a City:</strong></h3>
+                    <input name="city" id="city" type="text" autofocus="true" placeholder="search..."
+                        class="form-input is-full" />
+                    <div>
                         <button type="submit" class="btn is-full is-link">Search</button>
-                        </div>
-                    </form>
                     </div>
-                <!-- search bar 
-                <div class="column is-one-third">
-                    <h1 class="input-text"><strong>Search for a City:</strong></h1>
-                    <input class="search-bar" type="text" placeholder="Search..">
-                    <button class="button is-small mt-3">
-                        Button
-                      </button>
                 </div>
-            -->
                 <!-- weather display -->
                 <div class="wthr-display column is-two-thirds">
                     <ul>
-                        <li>Temp:</li>
-                        <li>Wind:</li>
-                        <li>Humidity:</li>
-                        <li>Index:</li>
+                        <h2>Showing Results For:</h2>
+                        <h2><span id="weather-results"></span></h2>
+                        
+                        <div id="weather-container" class="list-group">
+                        </div>
                     </ul>
                 </div>
 
@@ -52,29 +42,25 @@
     </section>
 
 
-        <!-- weekly forecast -->
-        <div class="forecast column is-two-thirds">
-            <h4><strong>5-Day Forecast:</strong></h4>
-            <section class="container columns">
-                <div class="monday column is-one-fifth">
-                    <h3>Monday</h3>
-                </div>
-                <div class="tuesday column is-one-fifth">
-                    <h3>Tuesday</h3>
-                </div>
-                <div class="wednesday column is-one-fifth">
-                    <h3>Wednesday</h3>
-                </div>
-                <div class="thursday column is-one-fifth">
-                    <h3>Thursday</h3>
-                </div>
-                <div class="friday column is-one-fifth">
-                    <h3>Friday</h3>
-                </div>
-            </section>
-        </div>
+    <!-- weekly forecast -->
+    <div class="forecast column is-two-thirds">
+        <h4><strong>5-Day Forecast:</strong></h4>
+        <section id="forecast-container" class="container columns">
+            <div id="mondays" class="monday column is-one-fifth">
+            </div>
+            <div id="tuesdays" class="tuesday column is-one-fifth">
+            </div>
+            <div id="wednesdays" class="wednesday column is-one-fifth">
+            </div>
+            <div id="thursdays" class="thursday column is-one-fifth">
+            </div>
+            <div id="fridays" class="friday column is-one-fifth">
+            </div>
+        </section>
+    </div>
 
 
     <script src="./assets/script.js"></script>
 </body>
+
 </html>
